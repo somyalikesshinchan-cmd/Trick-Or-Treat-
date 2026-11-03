@@ -1,0 +1,119 @@
+<DOCTYPE html>
+    <html>
+        <head><style>
+            body{ background-image: url("omg.gif");}
+            @keyframes slide{
+                0%{
+                    transform: translate3d(0vw);
+                    transform:translateX(0vw);
+                    opacity:0;
+                }
+                50%{
+                    transform: translate3d(80 vw);
+                    transform: translateX(60vw)
+                }
+                100%{
+                    transform: translate3d(150px);
+                    transform: translateX(100px);
+                    opacity:1;
+                }
+            }
+            .Move{
+                animation: slide 15s infinite linear;
+                color: aliceblue;
+                position: relative;
+                font-family: cursive;
+            }
+            .bgmusic{
+                display: none;
+            }
+                        .popup_msg{
+                position: fixed;
+                top: 0;
+                left:0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.2);
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index:1000;
+            }
+            .message{
+                background: #b67719;
+                border: 20px;
+                border-radius: 30px;
+                text-align: center;
+                padding: 40px;
+                position: relative;
+                width: 90%;
+                font-family: cursive;
+                box-shadow: 0 8px 24px rgba(201, 87, 87, 0.2)
+            }
+            .message h2{
+                color:blueviolet;
+                font-size: 30px;
+            }
+            .message h3{
+                color: blue;
+            }
+            .btns{
+                margin-top: 20px;
+                display: flex;
+                gap:180px;
+                position: relative;
+                min-height: 20px;
+            }
+            .yes-btn{
+                background-color: rgb(167, 41, 25);
+                padding: 30px;
+                border: 2px solid;
+                border-radius: 40px;
+                color: darkblue;
+                font-family: cursive;
+            }
+            .no-btn{
+                background-color: rgb(78, 218, 108);
+                border: 2px solid;
+                border-radius: 40px;
+                padding: 30px;
+                position: relative;
+                transition: all 0.1s ease;
+            }
+           </style></head>
+        <body>
+            <div class="Move">
+              <h1>HAPPY   HALLOWEEN</h1>
+              <div class="Img">
+                <img src="Scared Animation Sticker by SpongeBob SquarePants.gif">
+              </div>
+            </div>
+            <div class="bgmusic">
+                <audio id="horror" loop controls autoplay>
+                 <source src="kiravale-horror-music-593677.mp3.crdownload" type="audio/mpeg">
+                </audio>
+            </div>
+            <div id="popup" class="popup_msg">
+        <div class="message">
+            <h2>TRICK OR TREAT?</h2>
+            <div class="btns">
+                <btns class="btn yes-btn" onclick="goToSecondPage()">Trick...</btns>
+                <btns id="nobtn" class="btn no-btn" onclick="goToThirdPage()">Treat!</btns>
+            </div>
+        </div>
+    </div>
+    <script>
+        function goToSecondPage(){
+                window.location.href= "Second.html";
+            }
+            function goToThirdPage(){
+                window.location.href= "Third.html";
+            }
+         function showmessage(){
+                const msg= document.getElementById('popup');
+                msg.style.display='flex';
+            }
+            setTimeout(showmessage, 15000);
+    </script>
+        </body>
+</DOCTYPE>

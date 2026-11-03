@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html><head><style>
+body{background-color: black;
+text-align: center;}
+h3{color:antiquewhite}
+h1{color: red;}
+h2{color: azure;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}
+@keyframes slide{
+    0%{
+        transform: translateX(-30vw);
+        opacity:0.5;
+    }
+    50%{
+        transform: translateX(80vw);
+    }
+    100%{
+        transform: translateX(150px)
+    }
+}
+.Boo{
+    animation: slide 8s infinite linear;
+}
+ .message{
+                background: #b67719;
+                border: 20px;
+                border-radius: 30px;
+                text-align: center;
+                padding: 40px;
+                position: relative;
+                width: 90%;
+                font-family: cursive;
+                box-shadow: 0 8px 24px rgba(201, 87, 87, 0.2)
+            }
+            .message h2{
+                color:blueviolet;
+                font-size: 30px;
+            }
+            .message h3{
+                color: blue;
+            }
+            .btns{
+                margin-top: 20px;
+                display: flex;
+                gap:180px;
+                position: relative;
+                min-height: 20px;
+            }
+            .yes-btn{
+                background-color: rgb(167, 41, 25);
+                padding: 30px;
+                border: 2px solid;
+                border-radius: 40px;
+                color: darkblue;
+                font-family: cursive;
+            }
+            .no-btn{
+                background-color: rgb(78, 218, 108);
+                border: 2px solid;
+                border-radius: 40px;
+                padding: 30px;
+                position: relative;
+                transition: all 0.1s ease;
+            }
+#popup{
+    display: none;
+}
+</style></head>
+<body>
+<h3>So you chose...</h3>
+<h1>TRICK?????!!!</h1>
+<div id="popup" class="popup_msg">
+        <div class="message">
+            <h2>Do you still don't wanna give a treat after seeing the generosity of the ghost?</h2>
+            <div class="btns">
+                <btns class="btn yes-btn" onclick="goToSecondPage()">YES! I will give treats!</btns>
+                <btns id="nobtn" class="btn no-btn" onclick="goToLastPage()">nah</btns>
+            </div>
+        </div>
+    </div>
+<div class="Boo">
+<img src="ghost.gif" width="450">
+</div>
+<h2>Well, no tricks for you cuz you are so nice but this cute ghost is nicer hehe!</h2>
+    <script>
+      function goToSecondPage(){
+        window.location.href="Second.html";
+      }
+      function goToLastPage(){
+        window.location.hred="Last.html";
+      }
+       function showmessage(){
+                const msg= document.getElementById('popup');
+                msg.style.display='flex';
+            }
+            setTimeout(showmessage, 15000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head><style>
+     body{background-color: rgb(102, 14, 161);
+    height: 100vh;
+text-align: center;}
+     @keyframes slide{
+                0%{
+                    transform: translate3d(0vw);
+                    transform:translateX(0vw);
+                    opacity:0;
+                }
+                50%{
+                    transform: translate3d(80 vw);
+                    transform: translateX(60vw)
+                }
+                100%{
+                    transform: translate3d(150px);
+                    transform: translateX(100px);
+                    opacity:1;
+                }
+            }
+            .Move{
+                animation: slide 15s infinite linear;
+                position: relative;
+            }
+     h1{font-family: monospace;
+    color: lightblue ;}
+    .Fall{
+      position:relative;
+      width:400px;
+      margin: 0 auto;
+    }
+    .candy{
+        width:100%;
+        cursor:pointer;
+        user-select:none;
+    }
+    .Empty-bucket{
+        width:250px;
+        margin-top: 150px;
+        position: relative;
+        z-index:2;
+    }
+    .falloftoffee{
+        position:absolute;
+        top:150px;
+        left:50%;
+        width:100px;
+        height:70px;
+        z-index:1;
+        transform:translateX(-50%);
+        pointer-events:none;
+        animation: fallofcandy 1s ease-in forwards;
+    }
+    @keyframes fallofcandy{
+        0%{
+            top:180px;
+            opacity:1;
+            transform: translateX(-50%) rotate(0deg);
+        }
+        80%{
+            opacity: 1;
+        }
+        100%{
+            top:660px;
+            opacity:0;
+            transform: translateX(-50%) rotate(360deg);
+        }
+    }
+    </style></head>
+    <body>
+        <div class="Move">
+        <img src="TorT.png" width="350">
+        </div>
+        <div class="Fall" id="fall">
+        <h1>Click below to give a candy! </h1>
+        <img src="istockphoto-1347533215-612x612.jpg" width="500" class="candy" id="bowl" alt="Candy bowl">
+           <div>
+           <img src="pumpkin.jpg" width="500" class="Empty-bucket" alt="Pumpkin">
+           </div>
+        </div>
+     <script>
+        const toffee=['toffee1.jpg','toffee2.jpg','toffee3.jpg','toffee4.jpg'];
+        const bowl= document.getElementById('bowl');
+        const fall= document.getElementById('fall');
+        bowl.addEventListener('click',() => {
+            const randomIndex= Math.floor(Math.random()*toffee.length);
+            const randomtoffee= toffee[randomIndex];
+            const fallingcandy= document.createElement('img');
+            fallingcandy.src= randomtoffee;
+            fallingcandy.classList.add('falloftoffee');
+            const random=(Math.random()-0.5)*60;
+            fallingcandy.style.marginLeft=`${random}px`;
+            fall.appendChild(fallingcandy);
+            setTimeout(() => {
+              fallingcandy.remove();
+            },1000);
+            });
+     </script>
+    </body>
+</html>
